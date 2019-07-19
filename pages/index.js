@@ -1,6 +1,7 @@
 import NavBar from '../components/NavBar'
 import Layout from '../components/Layout'
 import axios from 'axios'
+import Link from 'next/link'
 
 const Index = (props) => (
   <Layout>
@@ -11,7 +12,9 @@ const Index = (props) => (
     <ul>
       {props.data.map((people) => {
         return (
-          <li>{people.name}</li>
+          <li><Link href="character/[name]" as={`character/${people.name}`}><a>
+          {people.name}
+          </a></Link></li>
         )
       })}
     </ul>
